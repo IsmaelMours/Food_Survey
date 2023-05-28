@@ -25,7 +25,7 @@ namespace Food_Survey
             int averageAge = GetAverageAge();
             int maxAge = GetMaxAge();
             int minAge = GetMinAge();
-            int pizzaPercentage = GetPizzaPercentage();
+            double pizzaPercentage = GetPizzaPercentage();
             int pastaPercentage = GetPastaPercentage();
             int papAndWorsPercentage = GetPapAndWorsPercentage();
             int eatOutRatingAverage = GetAverageRatingEatOut();
@@ -35,16 +35,16 @@ namespace Food_Survey
 
             // Update the UI with the survey results
             lblTotalSurveys.Text =  totalSurveys.ToString();
-            lblAverageAge.Text = averageAge.ToString("F1");
+            lblAverageAge.Text = averageAge.ToString();
             lblMaxAge.Text =  maxAge.ToString();
             lblMinAge.Text =  minAge.ToString();
           lblPizzaPercentage.Text =  pizzaPercentage.ToString("F1") + "%";
             lblPastaPercentage.Text =  pastaPercentage.ToString("F1") + "%";
            lblPapAndWorsPercentage.Text =  papAndWorsPercentage.ToString("F1") + "%";
-            lblEatOutRating.Text =  eatOutRatingAverage.ToString("F1");
-            lblWatchMoviesRating.Text =  watchMoviesRatingAverage.ToString("F1");
-            lblWatchTVRating.Text =  watchTVRatingAverage.ToString("F1");
-            lblListenToRadioRating.Text =  listenToRadioRatingAverage.ToString("F1");
+            lblEatOutRating.Text =  eatOutRatingAverage.ToString();
+            lblWatchMoviesRating.Text =  watchMoviesRatingAverage.ToString();
+            lblWatchTVRating.Text =  watchTVRatingAverage.ToString();
+            lblListenToRadioRating.Text =  listenToRadioRatingAverage.ToString();
         }
         private int GetTotalSurveys()
         {
@@ -98,7 +98,7 @@ namespace Food_Survey
             }
         }
 
-        private int GetPizzaPercentage()
+        private double GetPizzaPercentage()
         {
             double pizzaPercentage = 0;
 
@@ -110,11 +110,11 @@ namespace Food_Survey
                 object result = command.ExecuteScalar();
                 if (result != DBNull.Value)
                 {
-                    pizzaPercentage = Convert.ToInt32(result);
+                    pizzaPercentage = Convert.ToDouble(result);
                 }
             }
 
-            return (int)pizzaPercentage;
+            return (double)pizzaPercentage;
         }
 
         private int GetPastaPercentage()

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(surveyForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,6 +62,10 @@
             this.checkChicken = new System.Windows.Forms.CheckBox();
             this.checkBeef = new System.Windows.Forms.CheckBox();
             this.checkOther = new System.Windows.Forms.CheckBox();
+            this.lblSurname = new System.Windows.Forms.Label();
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.lblContact = new System.Windows.Forms.Label();
+            this.lblAge = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -188,11 +193,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Location = new System.Drawing.Point(0, 251);
+            this.panel1.Location = new System.Drawing.Point(0, 246);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(604, 19);
+            this.panel1.Size = new System.Drawing.Size(604, 24);
             this.panel1.TabIndex = 12;
             // 
             // label8
@@ -209,6 +215,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -219,11 +226,12 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.label9);
             this.panel3.Location = new System.Drawing.Point(0, 418);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(604, 19);
+            this.panel3.Size = new System.Drawing.Size(604, 28);
             this.panel3.TabIndex = 15;
             // 
             // label9
@@ -280,6 +288,7 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.White;
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel10.Location = new System.Drawing.Point(3, 579);
             this.panel10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel10.Name = "panel10";
@@ -288,7 +297,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(257, 604);
+            this.btnSubmit.Location = new System.Drawing.Point(237, 604);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(110, 23);
             this.btnSubmit.TabIndex = 51;
@@ -417,12 +426,58 @@
             this.checkOther.Text = "Other";
             this.checkOther.UseVisualStyleBackColor = true;
             // 
+            // lblSurname
+            // 
+            this.lblSurname.AutoSize = true;
+            this.lblSurname.BackColor = System.Drawing.Color.White;
+            this.lblSurname.ForeColor = System.Drawing.Color.Red;
+            this.lblSurname.Location = new System.Drawing.Point(426, 96);
+            this.lblSurname.Name = "lblSurname";
+            this.lblSurname.Size = new System.Drawing.Size(0, 13);
+            this.lblSurname.TabIndex = 62;
+            // 
+            // lblFirstName
+            // 
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.BackColor = System.Drawing.Color.White;
+            this.lblFirstName.ForeColor = System.Drawing.Color.Red;
+            this.lblFirstName.Location = new System.Drawing.Point(426, 126);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(0, 13);
+            this.lblFirstName.TabIndex = 63;
+            // 
+            // lblContact
+            // 
+            this.lblContact.AutoSize = true;
+            this.lblContact.BackColor = System.Drawing.Color.White;
+            this.lblContact.ForeColor = System.Drawing.Color.Red;
+            this.lblContact.Location = new System.Drawing.Point(426, 160);
+            this.lblContact.Name = "lblContact";
+            this.lblContact.Size = new System.Drawing.Size(0, 13);
+            this.lblContact.TabIndex = 64;
+            // 
+            // lblAge
+            // 
+            this.lblAge.AutoSize = true;
+            this.lblAge.BackColor = System.Drawing.Color.White;
+            this.lblAge.ForeColor = System.Drawing.Color.Red;
+            this.lblAge.Location = new System.Drawing.Point(271, 219);
+            this.lblAge.Name = "lblAge";
+            this.lblAge.Size = new System.Drawing.Size(0, 13);
+            this.lblAge.TabIndex = 65;
+            // 
             // surveyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(604, 648);
+            this.Controls.Add(this.lblAge);
+            this.Controls.Add(this.lblContact);
+            this.Controls.Add(this.lblFirstName);
+            this.Controls.Add(this.lblSurname);
             this.Controls.Add(this.checkOther);
             this.Controls.Add(this.checkBeef);
             this.Controls.Add(this.checkChicken);
@@ -454,9 +509,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "surveyForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "surveyForm";
             this.Load += new System.EventHandler(this.surveyForm_Load);
             this.panel1.ResumeLayout(false);
@@ -505,5 +561,9 @@
         private System.Windows.Forms.CheckBox checkChicken;
         private System.Windows.Forms.CheckBox checkBeef;
         private System.Windows.Forms.CheckBox checkOther;
+        private System.Windows.Forms.Label lblSurname;
+        private System.Windows.Forms.Label lblFirstName;
+        private System.Windows.Forms.Label lblContact;
+        private System.Windows.Forms.Label lblAge;
     }
 }

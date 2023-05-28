@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,24 +57,31 @@ namespace Food_Survey
             int WatchTVRating = GetRatingValue(cmbWatchTV.SelectedIndex + 1);
             int ListenToRadioRating = GetRatingValue(cmbListenToRadio.SelectedIndex + 1);
             string contactNumberText = txtContactNumber.Text;
-            if (string.IsNullOrWhiteSpace(txtSurname.Text) || string.IsNullOrWhiteSpace(txtFirstNames.Text) )
+            if (string.IsNullOrWhiteSpace(txtSurname.Text) )
             {
-                MessageBox.Show("Please fill in all the required fields.");
-               
+                lblSurname.Text = "***Required Field***";
+
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtFirstNames.Text)) {
+
+                lblFirstName.Text = "***Required Field***";
+                return;
             }
 
           
             // Check if the input string is empty
             if (string.IsNullOrEmpty(contactNumberText))
             {
-                MessageBox.Show("Contact number is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblContact.Text = "***Required Field***";
                 return;
             }
 
             // Attempt to convert the input string to an integer
             if (!int.TryParse(contactNumberText, out int contactNumber))
             {
-                MessageBox.Show("Invalid contact number. Please enter a valid integer.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblContact.Text = "***Enter valid integer***";
                 return;
             }
 
@@ -83,13 +90,13 @@ namespace Food_Survey
             // Validate the age field
             if (string.IsNullOrEmpty(txtAge.Text))
             {
-                MessageBox.Show("Age is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblAge.Text = "***Required Field***";
                 return;
             }
 
             if (!int.TryParse(txtAge.Text, out int age) || age < 5 || age > 120)
             {
-                MessageBox.Show("Invalid age. Please enter a valid integer between 5 and 120.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblAge.Text = "***Enter valid integer***";
                 return;
             }
             // Check if a rating is selected for each question
