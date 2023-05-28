@@ -25,9 +25,9 @@ namespace Food_Survey
             int averageAge = GetAverageAge();
             int maxAge = GetMaxAge();
             int minAge = GetMinAge();
-            double pizzaPercentage = GetPizzaPercentage();
-            int pastaPercentage = GetPastaPercentage();
-            int papAndWorsPercentage = GetPapAndWorsPercentage();
+            decimal pizzaPercentage = GetPizzaPercentage();
+            decimal pastaPercentage = GetPastaPercentage();
+            decimal papAndWorsPercentage = GetPapAndWorsPercentage();
             int eatOutRatingAverage = GetAverageRatingEatOut();
             int watchMoviesRatingAverage = GetAverageRatingWatchMovies();
             int watchTVRatingAverage = GetAverageRatingWatchTV();
@@ -98,62 +98,64 @@ namespace Food_Survey
             }
         }
 
-        private double GetPizzaPercentage()
+        private decimal GetPizzaPercentage()
         {
-            double pizzaPercentage = 0;
+            decimal pizzaPercentage = 0;
 
             // Perform database query to calculate the percentage of people who like Pizza
             using (SqlConnection connection = new SqlConnection("Data Source=desktop-rrr0012;Initial Catalog=SurveyApp;Integrated Security=True"))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT (SUM(CAST(Pizza AS INT)) * 100.0 / COUNT(*)) FROM SurveyData", connection);
+                SqlCommand command = new SqlCommand("SELECT ROUND((SUM(CAST(Pizza AS DECIMAL)) * 100.0 / COUNT(*)), 1) FROM SurveyData", connection);
                 object result = command.ExecuteScalar();
                 if (result != DBNull.Value)
                 {
-                    pizzaPercentage = Convert.ToDouble(result);
+                    pizzaPercentage = Convert.ToDecimal(result);
                 }
             }
 
-            return (double)pizzaPercentage;
+            return pizzaPercentage;
         }
 
-        private int GetPastaPercentage()
+
+        private decimal GetPastaPercentage()
         {
-            double pastaPercentage = 0;
+            decimal pastaPercentage = 0;
 
             // Perform database query to calculate the percentage of people who like Pasta
             using (SqlConnection connection = new SqlConnection("Data Source=desktop-rrr0012;Initial Catalog=SurveyApp;Integrated Security=True"))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT (SUM(CAST(Pasta AS INT)) * 100.0 / COUNT(*)) FROM SurveyData", connection);
+                SqlCommand command = new SqlCommand("SELECT ROUND((SUM(CAST(Pasta AS DECIMAL)) * 100.0 / COUNT(*)), 1) FROM SurveyData", connection);
                 object result = command.ExecuteScalar();
                 if (result != DBNull.Value)
                 {
-                    pastaPercentage = Convert.ToInt32(result);
+                    pastaPercentage = Convert.ToDecimal(result);
                 }
             }
 
-            return (int)pastaPercentage;
+            return pastaPercentage;
         }
 
-        private int GetPapAndWorsPercentage()
+        private decimal GetPapAndWorsPercentage()
         {
-            double papAndWorsPercentage = 0;
+            decimal papAndWorsPercentage = 0;
 
             // Perform database query to calculate the percentage of people who like Pap and Wors
             using (SqlConnection connection = new SqlConnection("Data Source=desktop-rrr0012;Initial Catalog=SurveyApp;Integrated Security=True"))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT (SUM(CAST(PapAndWors AS INT)) * 100.0 / COUNT(*)) FROM SurveyData", connection);
+                SqlCommand command = new SqlCommand("SELECT ROUND((SUM(CAST(PapAndWors AS DECIMAL)) * 100.0 / COUNT(*)), 1) FROM SurveyData", connection);
                 object result = command.ExecuteScalar();
                 if (result != DBNull.Value)
                 {
-                    papAndWorsPercentage = Convert.ToDouble(result);
+                    papAndWorsPercentage = Convert.ToDecimal(result);
                 }
             }
 
-            return (int)papAndWorsPercentage;
+            return papAndWorsPercentage;
         }
+
 
         private int GetAverageRatingEatOut()
         {
