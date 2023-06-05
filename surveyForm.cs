@@ -64,12 +64,15 @@ namespace Food_Survey
                 return;
             }
 
+            lblSurname.Text = "";
+
             if (string.IsNullOrWhiteSpace(txtFirstNames.Text)) {
 
                 lblFirstName.Text = "***Required Field***";
                 return;
             }
 
+            lblFirstName.Text = "";
           
             // Check if the input string is empty
             if (string.IsNullOrEmpty(contactNumberText))
@@ -85,7 +88,22 @@ namespace Food_Survey
                 return;
             }
 
+            // Validate if the contact number is a 10-digit integer starting with a 0
+            if (contactNumberText.Length != 10)
+            {
+                lblContact.Text = "***Enter a 10-digit";
+                return;
+            }
 
+            if (contactNumberText[0] != '0')
+            {
+
+                lblContact.Text = "***contact must start with 0***";
+                return;
+            }
+
+
+            lblContact.Text = "";
 
             // Validate the age field
             if (string.IsNullOrEmpty(txtAge.Text))
@@ -93,12 +111,13 @@ namespace Food_Survey
                 lblAge.Text = "***Required Field***";
                 return;
             }
-
+            
             if (!int.TryParse(txtAge.Text, out int age) || age < 5 || age > 120)
             {
                 lblAge.Text = "***Enter valid integer***";
                 return;
             }
+            lblAge.Text = "";
             // Check if a rating is selected for each question
             if (cmbEatOut.SelectedIndex == -1 || cmbWatchMovies.SelectedIndex == -1 || cmbWatchTV.SelectedIndex == -1 || cmbListenToRadio.SelectedIndex == -1)
             {
